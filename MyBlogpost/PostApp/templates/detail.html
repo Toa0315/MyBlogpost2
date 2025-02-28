@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-3">{{ post.title }}</h1>
+    <p class="text-muted">By <b>{{ post.author }}</b> | Published on {{ post.created }}</p>
+    <p>{{ post.body|linebreaks }}</p>
+
+    <!-- Like Button -->
+    <form method="post" class="mb-3">
+        {% csrf_token %}
+        <button type="submit" name="like_submit" class="btn like-btn">
+            👍 {{ total_likes }} Like{% if total_likes != 1 %}s{% endif %}
+        </button>
+    </form>
+
+    <hr>
+    <h3 class="text-center text-dark mt-4">💬 Comments</h3>
+
+    {% if comments %}
+        {% for comment in comments %}
+        <div class="card mb-3 comment-box">
+            <div class="card-body">
+                <h5 class="card-title text-dark">{{ comment.name }}</h5>
+                <p class="card-text">{{ comment.body }}</p>
+                <small class="text-muted">Posted on {{ comment.created }}</small>
+
+                <!-- Reply Button -->
+                <button class="btn btn-sm btn-outline-primary mt-2" onclick="showReplyForm('{{ comment.id }}')">Reply</button>
+
+                <!-- Show Replies -->
+                {% for reply in comment.replies.all %}
+                    <div class="card mt-2 ms-4 p-2 reply-box">
+                        <h6 class="text-dark">{{ reply.name }}</h6>
+                        <p class="small">{{ reply.body }}</p>
+                        <small class="text-muted">Replied on {{ reply.created }}</small>
+                    </div>
+                {% endfor %}
+
+                <!-- Reply Form (Hidden by Default) -->
+                <div id="reply-form-{{ comment.id }}" class="reply-form mt-2" style="display: none;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                        <input type="text" name="name" class="form-control cute-input mt-2" placeholder="Your Name">
+                        <input type="email" name="email" class="form-control cute-input mt-2" placeholder="Your Email">
+                        <textarea name="body" class="form-control cute-input mt-2" rows="2" placeholder="Reply..."></textarea>
+                        <button type="submit" name="comment_submit" class="btn cute-btn mt-2">✨ Reply ✨</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-center text-muted">No comments yet. Be the first to comment! ✨</p>
+    {% endif %}
+
+    <hr>
+    <h3 class="text-center text-dark mt-4">💬 Leave a Comment</h3>
+
+    <div class="comment-box p-4 mt-3 rounded">
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="parent_id" value="">
+            <div class="mb-3">
+                <label class="form-label text-dark">Your Name</label>
+                <input type="text" name="name" class="form-control cute-input" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Your Email</label>
+                <input type="email" name="email" class="form-control cute-input" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Your Comment</label>
+                <textarea name="body" class="form-control cute-input" rows="3" placeholder="Write something nice..."></textarea>
+            </div>
+            <button type="submit" name="comment_submit" class="btn cute-btn">✨ Post Comment ✨</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

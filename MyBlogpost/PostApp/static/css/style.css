@@ -1,0 +1,124 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #ffe4e1; /* Light pink background */
+    color: #333;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffb6c1; /* Soft pink */
+}
+
+.card-title a {
+    text-decoration: none;
+    color: #8b0000; /* Dark Red */
+}
+
+.card-title a:hover {
+    color: #ff69b4; /* Hot Pink */
+}
+
+.btn-primary {
+    background-color: #ff69b4; /* Hot Pink */
+    border-color: #ff69b4;
+}
+
+.btn-primary:hover {
+    background-color: #ff1493; /* Deeper Pink */
+    border-color: #ff1493;
+}
+
+footer {
+    font-size: 14px;
+}
+
+/* Cute Comment Box */
+.comment-box {
+    background-color: #ffe4ec; /* Soft pink */
+    border: 2px solid #ffb6c1; /* Light pink border */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cute Input Fields */
+.cute-input {
+    border-radius: 10px;
+    border: 2px solid #ff69b4; /* Pink border */
+    padding: 10px;
+}
+
+/* Cute Button */
+/* Fix button invisibility */
+.cute-btn {
+    background-color: #ff69b4; /* Hot Pink */
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    color: white;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.cute-btn:hover {
+    background-color: #ff1493; /* Deeper Pink */
+    box-shadow: 0px 4px 8px rgba(255, 20, 147, 0.5);
+    transform: scale(1.05);
+}
+
+/* Ensure form is styled properly */
+.comment-box {
+    background-color: #ffe4ec; /* Soft pink */
+    border: 2px solid #ffb6c1; /* Light pink border */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.like-btn {
+    background-color: #ff69b4; /* Hot Pink */
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.like-btn:hover {
+    background-color: #ff1493; /* Deeper Pink */
+    box-shadow: 0px 4px 8px rgba(255, 20, 147, 0.5);
+    transform: scale(1.05);
+}
+
+/* Replies */
+.reply-box {
+    background-color: #fff0f5; /* Light pink */
+    border-left: 3px solid #ff69b4; /* Pink left border */
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+/* Reply Button */
+.btn-outline-primary {
+    border-color: #ff69b4;
+    color: #ff69b4;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff69b4;
+    color: white;
+}
+
+/* Hidden reply form */
+.reply-form {
+    border-left: 3px solid #ffb6c1;
+    padding-left: 10px;
+}
