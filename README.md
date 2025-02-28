@@ -1,4 +1,5 @@
-This is a website were you can create a thread and people can comment on your thread. 
+This is a website were you can create a blog and people can comment on your blog. 
+no virual environment are needed.
 There is no requirement to run this project. After you run it it should look like this:
 
 ![Screenshot 2025-02-28 090613](https://github.com/user-attachments/assets/20ec09d2-34b6-464a-b927-51c59f79801d)
